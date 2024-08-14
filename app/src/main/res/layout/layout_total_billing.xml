@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <TextView
+                android:id="@+id/txtSender"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/dm_sans"
+                android:text="Until Date"
+                android:textColor="#A3AED0"
+                app:layout_constraintEnd_toStartOf="@+id/txtUntilDate"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txtUntilDate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/dm_sans"
+                android:gravity="right"
+                android:text="23233"
+                android:textColor="@color/dark_blue"
+                app:layout_constraintBottom_toBottomOf="@+id/txtSender"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/txtSender"
+                app:layout_constraintTop_toTopOf="@+id/txtSender" />
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:background="@color/divider_bg"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtSender" />
+
+            <TextView
+                android:id="@+id/txtReceiver"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/dm_sans"
+                android:text="Current Month"
+                android:textColor="#B8C0DA"
+                app:layout_constraintEnd_toStartOf="@+id/txtCurrentMonth"
+                app:layout_constraintStart_toStartOf="@+id/txtSender"
+                app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+            <TextView
+                android:id="@+id/txtCurrentMonth"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/dm_sans"
+                android:gravity="right"
+                android:text="2356"
+                android:textColor="@color/dark_blue"
+                app:layout_constraintBottom_toBottomOf="@+id/txtReceiver"
+                app:layout_constraintEnd_toEndOf="@+id/txtUntilDate"
+                app:layout_constraintStart_toEndOf="@+id/txtReceiver"
+                app:layout_constraintTop_toTopOf="@+id/txtReceiver" />
+
+            <View
+                android:id="@+id/divider2"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:background="@color/divider_bg"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtReceiver" />
+
+            <TextView
+                android:id="@+id/txtAmountTrans"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="24dp"
+                android:text="Previous Month"
+                android:textColor="@color/light_blue"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/txtPrevMonth"
+                app:layout_constraintStart_toStartOf="@+id/txtReceiver"
+                app:layout_constraintTop_toBottomOf="@+id/divider2" />
+
+            <TextView
+                android:id="@+id/txtPrevMonth"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:text="20"
+                android:textColor="@color/dark_blue"
+                app:layout_constraintBottom_toBottomOf="@+id/txtAmountTrans"
+                app:layout_constraintEnd_toEndOf="@+id/txtCurrentMonth"
+                app:layout_constraintStart_toEndOf="@+id/txtAmountTrans"
+                app:layout_constraintTop_toTopOf="@+id/txtAmountTrans"
+                app:layout_constraintVertical_bias="0.0" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

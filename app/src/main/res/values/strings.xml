@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">Dimasys</string>
+    <string name="version">"Version\u0020"</string>
+
+
+    <!--  BUTTON-->
+    <string name="sign_in">Login</string>
+    <string name="username">Email</string>
+    <string name="password">Password</string>
+    <string name="enter_user">Enter an email</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="close">Close</string>
+    <string name="otp">Verification Code</string>
+    <string name="otpVali">OTP mismatches</string>
+    <string name="drawer_open">Open Drawer</string>
+    <string name="drawer_close">Close Drawer</string>
+    <string name="retry">Retry</string>
+    <string name="contin">Continue</string>
+    <!--  HEAD-->
+    <string name="opt_message">We have send a 6 digit OTP to  xxxxxxxxxx</string>
+    <string name="onboarded_distributors">Onboarded Distributors</string>
+    <string name="onboarded_sales_team">Onboarded Sales Team</string>
+    <string name="onboarded_merchants">Onboarded Merchants</string>
+    <string name="product_requested">Product Requested</string>
+    <string name="recent_products">Recent Products</string>
+    <string name="recent_transactions">Recent Transactions</string>
+    <string name="total_available_inventory">Total Available Inventory</string>
+    <string name="total_inventory_distributor">Total Inventory at Distributor Level</string>
+    <string name="total_inventory_retailer">Total Inventory at Retailer Level</string>
+    <string name="total_billing">Total Billing</string>
+    <string name="money_collected">Money Collected</string>
+    <string name="total_payment_collected">Total Payment Collected</string>
+    <string name="wallet_balance">Wallet Balance</string>
+    <string name="apply_for_loan">Apply For Loan</string>
+    <string name="other_prds">Order Products</string>
+    <string name="onboard_merchant">Onboarded Merchants</string>
+    <string name="ttl_inven_retail">Total Inventory at Retailer Level</string>
+    <string name="inven_retail">Inventory at Retailer Level</string>
+
+    <string name="email_validation">Enter a valid email </string>
+    <string name="password_validation">Wrong password. Try again </string>
+
+    <string name="agree_tnc_one">By continuing,you agree to our </string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>

@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_gradient"
+        android:fillViewport="true"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_90sdp"
+                android:src="@drawable/dimasys_logo"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.13"
+                android:contentDescription="TODO" />
+
+            <TextView
+                android:visibility="visible"
+                android:id="@+id/version"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_18sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:textColor="@color/text_grey"
+                android:textAlignment="textEnd"
+                android:textSize="@dimen/_9ssp"
+                app:layout_constraintTop_toBottomOf="@id/logo" />
+
+            <TextView
+                android:id="@+id/otp_head_msg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_18sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+
+                android:text="@string/opt_message"
+                android:textAlignment="center"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintTop_toBottomOf="@id/version"/>
+
+
+            <TextView
+                android:id="@+id/otp_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:text="@string/otp"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintBottom_toTopOf="@id/otp_view"
+                app:layout_constraintStart_toStartOf="@id/otp_view"
+                app:layout_constraintTop_toBottomOf="@id/otp_head_msg"
+                app:layout_constraintVertical_bias="1" />
+
+            <com.chillarcards.dimasys.utills.otp.OtpView
+                android:id="@+id/squareField"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_45sdp"
+                android:gravity="center"
+                android:layout_marginHorizontal="@dimen/_18sdp"
+                android:layout_marginVertical="@dimen/_10sdp"
+                android:inputType="number"
+                android:itemBackground="@drawable/bg_otp_item"
+                android:textAllCaps="true"
+                android:textColor="@color/text_black"
+                app:OtpHideLineWhenFilled="true"
+                app:OtpItemCount="6"
+                app:OtpItemSpacing="6dp"
+                app:OtpLineColor="@color/theme_green"
+                app:OtpState_filled="true"
+                app:OtpViewType="line"
+                android:focusable="true"
+                app:layout_constraintTop_toBottomOf="@id/otp_view"
+                tools:ignore="MissingConstraints" />
+
+            <com.chillarcards.dimasys.utills.SquarePinField
+                android:id="@+id/otp_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_18sdp"
+                android:layout_marginVertical="@dimen/_10sdp"
+                android:layout_marginTop="15dp"
+                android:inputType="number"
+                android:itemBackground="@drawable/bg_otp_item"
+                android:textAllCaps="true"
+                android:textColor="@color/text_black"
+                android:textSize="16sp"
+                android:visibility="gone"
+                app:OtpHideLineWhenFilled="true"
+                app:OtpItemCount="6"
+                app:OtpItemSpacing="6dp"
+                app:OtpLineColor="@color/theme_green"
+                app:OtpState_filled="true"
+                app:OtpViewType="line"
+                app:fieldBgColor="@color/white"
+                app:isCursorEnabled="true"
+                app:layout_constraintTop_toBottomOf="@id/otp_hint"
+                app:noOfFields="6"
+                tools:layout_editor_absoluteX="23dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/otp_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_18sdp"
+                android:layout_marginBottom="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_50sdp"
+                android:alpha="0.55"
+                android:background="@drawable/bg_gradient_linear"
+                android:enabled="false"
+                android:paddingVertical="@dimen/_10sdp"
+                android:text="@string/contin"
+                android:textAllCaps="true"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/_12ssp"
+                android:textStyle="bold"
+                app:backgroundTint="@null"
+                app:layout_constraintTop_toBottomOf="@id/otp_view" />
+
+            <ProgressBar
+                android:id="@+id/login_progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:indeterminate="true"
+                android:indeterminateTint="@color/primary_red"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@id/otp_btn"
+                app:layout_constraintEnd_toEndOf="@id/otp_btn"
+                app:layout_constraintStart_toStartOf="@id/otp_btn"
+                app:layout_constraintTop_toTopOf="@id/otp_btn" />
+
+            <TextView
+                android:id="@+id/bottom_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:ellipsize="marquee"
+                android:singleLine="true"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_8ssp"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</layout>

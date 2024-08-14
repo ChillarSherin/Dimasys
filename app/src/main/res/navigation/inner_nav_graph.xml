@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.chillarcards.dimasys.ui.partner.PartnersFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_DistributorFragment"
+            app:destination="@id/distributorFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_subDistributorFragment"
+            app:destination="@id/subDistributorFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_salesFragment"
+            app:destination="@id/salesFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_salesteamFragment"
+            app:destination="@id/salesTeamsuperFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_retailerFragment"
+            app:destination="@id/retailerFragment" />
+        <argument
+            android:name="mobileNo"
+            android:defaultValue=""
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/distributorFragment"
+        android:name="com.chillarcards.dimasys.ui.partner.PartnersFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_distributor">
+
+        <argument
+            android:name="id"
+            android:defaultValue=""
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/subDistributorFragment"
+        android:name="com.chillarcards.dimasys.ui.partner.PartnersFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_subdistributor">
+
+        <argument
+            android:name="id"
+            android:defaultValue=""
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/salesFragment"
+        android:name="com.chillarcards.dimasys.ui.partner.PartnersFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_sales_supervisor">
+
+        <argument
+            android:name="id"
+            android:defaultValue=""
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/salesTeamsuperFragment"
+        android:name="com.chillarcards.dimasys.ui.partner.PartnersFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_sales_teamsupervisor">
+
+        <argument
+            android:name="id"
+            android:defaultValue=""
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/retailerFragment"
+        android:name="com.chillarcards.dimasys.ui.partner.PartnersFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_retailer">
+
+        <argument
+            android:name="id"
+            android:defaultValue=""
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+
+</navigation>

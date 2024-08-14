@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/partner_nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.chillarcards.dimasys.ui.partner.PartnersFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home">
+
+        <argument
+            android:name="mobileNo"
+            android:defaultValue=""
+            app:argType="string"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_homeFragment_to_recentTransactionsFragment"
+            app:destination="@id/recentTransactionsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_recentProductsFragment"
+            app:destination="@id/recentProductsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_totalBillingFragment"
+            app:destination="@id/totalBillingFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_moneyCollectedFragment"
+            app:destination="@id/moneyCollectedFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/recentTransactionsFragment"
+        android:name="com.chillarcards.dimasys.ui.others.recent_transactions.RecentTransactionsFragment"
+        android:label="fragment_recent_transactions"
+        tools:layout="@layout/fragment_recent_transactions" />
+    <fragment
+        android:id="@+id/recentProductsFragment"
+        android:name="com.chillarcards.dimasys.ui.others.recent_products.RecentProductsFragment"
+        android:label="RecentProductsFragment" />
+    <fragment
+        android:id="@+id/totalBillingFragment"
+        android:name="com.chillarcards.dimasys.ui.others.total_billings.TotalBillingFragment"
+        android:label="TotalBillingFragment" />
+    <fragment
+        android:id="@+id/moneyCollectedFragment"
+        android:name="com.chillarcards.dimasys.ui.others.money_collected.MoneyCollectedFragment"
+        android:label="MoneyCollectedFragment" />
+
+
+</navigation>

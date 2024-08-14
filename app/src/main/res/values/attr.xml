@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="PinField">
+        <attr name="noOfFields" format="integer" />
+        <attr name="distanceInBetween" format="dimension" />
+        <attr name="lineThickness" format="dimension" />
+        <attr name="fieldColor" format="color" />
+        <attr name="highlightColor" format="color" />
+        <attr name="highlightEnabled" format="boolean" />
+        <attr name="isCustomBackground" format="boolean" />
+        <attr name="isCursorEnabled" format="boolean" />
+        <!--Single Field Mode is deprecated use highlight type to define how to highlight the fields-->
+        <attr name="highlightSingleFieldMode" format="boolean" />
+        <attr name="highlightType" format="enum" >
+            <enum name="allFields" value="0"/>
+            <enum name="currentField" value="1"/>
+            <enum name="completedFields" value="2"/>
+            <enum name="noFields" value="3"/>
+        </attr>
+        <attr name="fieldBgColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="LinePinField">
+        <attr name="bottomTextPaddingDp" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="SquarePinField">
+        <attr name="cornerRadius" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="CirclePinField">
+        <attr name="circleRadius" format="dimension" />
+        <attr name="fillerColor" format="color" />
+        <attr name="fillerRadius" format="dimension"/>
+    </declare-styleable>
+
+    <dimen name="otp_view_cursor_width">2dp</dimen>
+    <dimen name="otp_view_item_line_width">2dp</dimen>
+    <dimen name="otp_view_item_radius">5dp</dimen>
+    <dimen name="otp_view_item_size">48dp</dimen>
+    <dimen name="otp_view_item_spacing">5dp</dimen>
+    <style name="OtpWidget"/>
+    <style name="OtpWidget.OtpView" parent="Widget.AppCompat.EditText">
+        <item name="android:background">@null</item>
+        <item name="android:minHeight">0dp</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <declare-styleable name="OtpViewTheme">
+        <attr format="reference" name="otpViewStyle"/>
+    </declare-styleable>
+
+    <declare-styleable name="OtpView">
+        <attr format="integer" name="OtpItemCount"/>
+        <attr format="dimension" name="OtpItemWidth"/>
+        <attr format="dimension" name="OtpItemHeight"/>
+        <attr format="dimension" name="OtpItemRadius"/>
+        <attr format="dimension" name="OtpItemSpacing"/>
+        <attr format="dimension" name="OtpLineWidth"/>
+        <attr format="reference|color" name="OtpLineColor"/>
+        <attr format="enum" name="OtpViewType">
+            <enum name="rectangle" value="0"/>
+            <enum name="line" value="1"/>
+            <enum name="none" value="2"/>
+        </attr>
+        <attr name="android:cursorVisible"/>
+        <attr name="android:textAllCaps"/>
+        <attr format="dimension" name="OtpCursorWidth"/>
+        <attr format="reference|color" name="OtpCursorColor"/>
+        <attr name="android:itemBackground"/>
+        <attr format="boolean" name="OtpHideLineWhenFilled"/>
+        <attr format="boolean" name="OtpState_filled"/>
+        <attr format="boolean" name="OtpRtlTextDirection"/>
+        <attr format="string" name="OtpMaskingChar"/>
+    </declare-styleable>
+</resources>
