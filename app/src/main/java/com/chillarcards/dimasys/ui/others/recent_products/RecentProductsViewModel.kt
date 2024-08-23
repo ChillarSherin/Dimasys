@@ -30,17 +30,16 @@ class RecentProductsViewModel(
         viewModelScope.launch(NonCancellable) {
             try {
                 _recentProducts.postValue(Resource.loading(null))
-                if (networkHelper.isNetworkConnected()) {
-                    authRepository.getRecentProducts(
-                        userId.value.toString(),
-                    ).let {
+                if (networkHelper.isNetworkConnected()) { authRepository.getRecentProducts(userId.value.toString()).let {
                         if (it.isSuccessful) {
                             _recentProducts.postValue(Resource.success(it.body()))
                         } else {
                             _recentProducts.postValue(Resource.error(it.errorBody().toString(), null))
                         }
                     }
-                } else {
+                }
+
+                else {
                     _recentProducts.postValue(Resource.error("No Internet Connection", null))
                 }
             } catch (e: Exception) {

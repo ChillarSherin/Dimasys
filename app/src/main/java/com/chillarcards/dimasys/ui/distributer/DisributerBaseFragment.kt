@@ -4,12 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
 import com.chillarcards.dimasys.R
 import com.chillarcards.dimasys.databinding.FragmentDistributorBaseBinding
+import com.google.android.material.snackbar.Snackbar
 
 class DisributerBaseFragment : Fragment() {
 
@@ -32,6 +34,13 @@ class DisributerBaseFragment : Fragment() {
             .findFragmentById(R.id.inner_host_nav) as NavHostFragment
         val navController = navHostFragment.navController
 
+        val headerView = binding.navigationView.getHeaderView(0)
+        val textViewHeader: TextView = headerView.findViewById(R.id.tvMerchants)
+        textViewHeader.setOnClickListener {
+            // Handle the click event
+            Snackbar.make(binding.drawerLayout, "Header TextView clicked", Snackbar.LENGTH_SHORT).show()
+            // You can perform other actions here, like navigating to a different fragment
+        }
         setupDrawer()
      }
     private fun setupDrawer() {

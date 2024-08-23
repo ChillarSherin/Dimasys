@@ -30,9 +30,7 @@ class RecentTransactionsViewModel(
             try {
                 _recentTransactions.postValue(Resource.loading(null))
                 if (networkHelper.isNetworkConnected()) {
-                    authRepository.getRecentTransactions(
-                        userId.value.toString(),
-                    ).let {
+                    authRepository.getRecentTransactions(userId.value.toString(),).let {
                         if (it.isSuccessful) {
                             _recentTransactions.postValue(Resource.success(it.body()))
                         } else {

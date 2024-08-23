@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.chillarcards.dimasys.R
@@ -53,34 +54,65 @@ class OtpFragment : Fragment() {
         val maskedEmailAddress = maskEmailAddress(args.email.toString())
         binding.otpHeadMsg.text="We have send a 6 digit OTP to your registered $maskedPhoneNumber and $maskedEmailAddress"
 
-        binding.squareField.focusable
-        binding.squareField.addTextChangedListener {
+//        binding.squareField.focusable
+//        binding.squareField.addTextChangedListener {
+//            val input = it.toString()
+//            if (input.isNotEmpty()) {
+//                if (input.length==6) {
+//                    binding.squareField.error = null
+//                    Const.enableButton(binding.otpBtn)
+//                }
+//
+//                else {
+//                    //binding.otpView.error = "Are you sure you entered correctly?"
+//                    Const.disableButton(binding.otpBtn)
+//                }
+//            }
+//            else {
+//                binding.squareField.error = null
+//            }
+//        }
+//
+//        binding.otpBtn.setOnClickListener {
+//            val otpValue = binding.squareField.text.toString()
+//            binding.otpBtn.visibility =View.GONE
+//            showProgress()
+//            Const.hideSoftKey(requireContext(),view)
+//            otpVerify(otpValue)
+//        }
+
+        binding.otpView.focusable
+        binding.otpView.addTextChangedListener {
             val input = it.toString()
             if (input.isNotEmpty()) {
                 if (input.length==6) {
-                    binding.squareField.error = null
+                    binding.otpView.error = null
                     Const.enableButton(binding.otpBtn)
-                }else {
+
+                }
+                else {
                     //binding.otpView.error = "Are you sure you entered correctly?"
                     Const.disableButton(binding.otpBtn)
                 }
             }
             else {
-                binding.squareField.error = null
+                binding.otpView.error = null
             }
         }
 
         binding.otpBtn.setOnClickListener {
-            val otpValue = binding.squareField.text.toString()
+            val otpValue = binding.otpView.text.toString()
             binding.otpBtn.visibility =View.GONE
             showProgress()
             Const.hideSoftKey(requireContext(),view)
             otpVerify(otpValue)
+
         }
 
     }
 
     private fun otpVerify(otpValue: String) {
+        loginViewModel.clearOtpVerifyData()
         loginViewModel.run {
             userId.value = prefManager.getUserId()
             otp.value = otpValue
@@ -89,6 +121,7 @@ class OtpFragment : Fragment() {
         setUpObserver()
 
     }
+
 
     private fun setUpObserver() {
         try {
@@ -104,8 +137,7 @@ class OtpFragment : Fragment() {
 
                                         when (args.id) {
                                             "Partner" -> {
-                                                findNavController().navigate(
-                                                    OtpFragmentDirections.actionMobileFragmentToPartnerBaseFragment()
+                                                findNavController().navigate(OtpFragmentDirections.actionMobileFragmentToPartnerBaseFragment()
                                                 )
                                             }
                                             "222222" -> {
@@ -113,9 +145,10 @@ class OtpFragment : Fragment() {
                                                     OtpFragmentDirections.actionMobileFragmentToDistributorBaseFragment()
                                                 )
                                             }
-                                            "333333" -> {
+                                            "Subdistributor"-> {
+
                                                 findNavController().navigate(
-                                                    OtpFragmentDirections.actionMobileFragmentToSubDistributorFragment()
+                                                    R.id.subDistributorFragment
                                                 )
                                             }
                                             "444444" -> {
@@ -123,10 +156,11 @@ class OtpFragment : Fragment() {
                                                     OtpFragmentDirections.actionMobileFragmentToSalesFragment()
                                                 )
                                             }
-                                            "555555" -> {
-                                                findNavController().navigate(
-                                                    OtpFragmentDirections.actionMobileFragmentToSalesTeamsuperFragment()
-                                                )
+                                            "Salesmember" -> {
+                                                findNavController().navigate(R.id.salesTeamsuperFragment)
+//                                                findNavController().navigate(
+//                                                    OtpFragmentDirections.actionMobileFragmentToSalesTeamsuperFragment()
+//                                                )
                                             }
                                             "666666" -> {
                                                 findNavController().navigate(
@@ -141,7 +175,8 @@ class OtpFragment : Fragment() {
                                         }
 
                                     }
-                                    "400" -> {
+
+                                    "401" -> {
                                         Const.shortToast(requireContext(), resData.message)
                                     }
                                     else -> Const.shortToast(requireContext(), resData.message)
@@ -187,4 +222,8 @@ class OtpFragment : Fragment() {
     companion object {
         private const val TAG = "OTPFragment"
     }
+
+
+
+
 }

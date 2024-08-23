@@ -32,15 +32,18 @@ class LoginViewModel(
     var otp = MutableLiveData<String>()
     var userId = MutableLiveData<String>()
 
+    fun clearOtpVerifyData() {
+        _otpVerifyData.value = null
+        _loginData.value=null
+    }
+
+
+
     fun setlogin() {
         viewModelScope.launch(NonCancellable) {
             try {
                 _loginData.postValue(Resource.loading(null))
-                if (networkHelper.isNetworkConnected()) {
-                    authRepository.setLogin(
-                        email.value.toString(),
-                        password.value.toString()
-                    ).let {
+                if (networkHelper.isNetworkConnected()) { authRepository.setLogin(email.value.toString(), password.value.toString()).let {
                         if (it.isSuccessful) {
                             _loginData.postValue(Resource.success(it.body()))
                         } else {
@@ -60,10 +63,7 @@ class LoginViewModel(
             try {
                 _otpVerifyData.postValue(Resource.loading(null))
                 if (networkHelper.isNetworkConnected()) {
-                    authRepository.verifyOtp(
-                        userId.value.toString(),
-                        otp.value.toString()
-                    ).let {
+                    authRepository.verifyOtp(userId.value.toString(), otp.value.toString()).let {
                         if (it.isSuccessful) {
                             _otpVerifyData.postValue(Resource.success(it.body()))
                         } else {

@@ -17,8 +17,7 @@ import com.chillarcards.dimasys.utills.CommonDBaseModel
 import com.chillarcards.dimasys.ui.Dummy
 import com.chillarcards.dimasys.ui.interfaces.IAdapterViewUtills
 
-class RecentProductsAdapter(
-) : ListAdapter<RecentProduct, RecentProductsAdapter.ViewHolder>(RecentProductsCallback) {
+class RecentProductsAdapter() : ListAdapter<RecentProduct, RecentProductsAdapter.ViewHolder>(RecentProductsCallback) {
     class ViewHolder(private val layoutProductsHolderBinding: LayoutProductsHolderBinding) : RecyclerView.ViewHolder(layoutProductsHolderBinding.root) {
         fun bind(item: RecentProduct?) {
             with(layoutProductsHolderBinding){

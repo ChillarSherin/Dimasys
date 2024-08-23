@@ -16,7 +16,7 @@
         <!-- Toolbar -->
         <include
             android:id="@+id/toolbar"
-            layout="@layout/toolbar" />
+            layout="@layout/toolbar_sales_member" />
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -120,6 +120,7 @@
                         android:drawableStart="@drawable/ic_distributors"/>
 
                     <TextView
+                        android:id="@+id/tvOnboarcdMerchant"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="end"
@@ -150,6 +151,7 @@
                         android:drawableStart="@drawable/ic_distributors"/>
 
                     <TextView
+                        android:id="@+id/tvTotalInventory"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="end"

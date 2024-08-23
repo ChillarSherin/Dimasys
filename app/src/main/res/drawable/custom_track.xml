@@ -1,0 +1,47 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_checked="false">
+        <layer-list>
+            <!-- UK flag and text -->
+            <item android:left="8dp" android:top="2dp" android:bottom="2dp" android:right="5dp">
+                <bitmap
+                    android:src="@drawable/uk"
+                    android:gravity="left|center_vertical" />
+            </item>
+            <item>
+                <bitmap
+                    android:gravity="left|center_vertical"
+                    android:text="ON:"
+                    />
+            </item>
+            <item>
+                <shape android:shape="rectangle">
+                    <corners android:radius="100dp" />
+                    <solid android:color="#ffffff" />
+                    <stroke android:color="#8c8c8c" android:width="1dp"/>
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+    <item android:state_checked="true">
+        <layer-list>
+            <!-- Mexican flag and text -->
+            <item android:left="5dp" android:top="2dp" android:bottom="2dp" android:right="8dp">
+                <bitmap
+                    android:src="@drawable/mex"
+                    android:gravity="right|center_vertical" />
+            </item>
+            <item>
+                <bitmap
+                    android:gravity="right|center_vertical"
+                    android:text="ON:"/>
+            </item>
+            <item>
+                <shape android:shape="rectangle">
+                    <corners android:radius="100dp" />
+                    <solid android:color="#34c759" />
+                    <stroke android:color="#8c8c8c" android:width="1dp"/>
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+</selector>

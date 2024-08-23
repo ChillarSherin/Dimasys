@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.chillarcards.dimasys.R
 import com.chillarcards.dimasys.data.model.money_collected.res.MoneyCollectedResModel
 import com.chillarcards.dimasys.data.model.total_billing.res.BillingsResModel
@@ -39,7 +40,9 @@ class MoneyCollectedFragment() : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         prefManager = PrefManager(requireContext())
-
+binding.myToolbar.setOnClickListener {
+    findNavController().navigateUp()
+}
 
         recentTransactionViewModel.run {
             userId.value = prefManager.getUserId()

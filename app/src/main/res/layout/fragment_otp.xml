@@ -26,8 +26,8 @@
             <ImageView
                 android:id="@+id/logo"
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/_90sdp"
-                android:src="@drawable/dimasys_logo"
+                android:layout_height="@dimen/_70sdp"
+                android:src="@drawable/dim_final_logo"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -89,10 +89,12 @@
                 app:OtpHideLineWhenFilled="true"
                 app:OtpItemCount="6"
                 app:OtpItemSpacing="6dp"
+                android:visibility="gone"
                 app:OtpLineColor="@color/theme_green"
                 app:OtpState_filled="true"
                 app:OtpViewType="line"
                 android:focusable="true"
+                android:textCursorDrawable="@null"
                 app:layout_constraintTop_toBottomOf="@id/otp_view"
                 tools:ignore="MissingConstraints" />
 
@@ -108,7 +110,7 @@
                 android:textAllCaps="true"
                 android:textColor="@color/text_black"
                 android:textSize="16sp"
-                android:visibility="gone"
+                android:visibility="visible"
                 app:OtpHideLineWhenFilled="true"
                 app:OtpItemCount="6"
                 app:OtpItemSpacing="6dp"
@@ -117,6 +119,7 @@
                 app:OtpViewType="line"
                 app:fieldBgColor="@color/white"
                 app:isCursorEnabled="true"
+                android:textCursorDrawable="@null"
                 app:layout_constraintTop_toBottomOf="@id/otp_hint"
                 app:noOfFields="6"
                 tools:layout_editor_absoluteX="23dp" />

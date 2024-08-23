@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.chillarcards.dimasys.data.model.transaction.res.RecentTransactionsResModel
 import com.chillarcards.dimasys.databinding.FragmentRecentTransactionsBinding
 import com.chillarcards.dimasys.ui.adapter.RecentTransactionAdapter
@@ -15,7 +16,7 @@ import com.chillarcards.dimasys.utills.Status
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
-class RecentTransactionsFragment : Fragment() {
+class RecentTransactionsFragment : Fragment(){
 
     lateinit var binding: FragmentRecentTransactionsBinding
 //    val args: RecentTransactionsFragmentArgs by navArgs()
@@ -36,7 +37,9 @@ class RecentTransactionsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         prefManager = PrefManager(requireContext())
-
+       binding.myToolbar.setOnClickListener {
+       findNavController().navigateUp()
+}
 
         recentTransactionViewModel.run {
             userId.value = prefManager.getUserId()

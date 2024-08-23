@@ -6,6 +6,13 @@ import com.chillarcards.dimasys.data.model.money_collected.res.MoneyCollectedRes
 import com.chillarcards.dimasys.data.model.partner_products.res.RecentProductsResModel
 import com.chillarcards.dimasys.data.model.total_billing.res.BillingsResModel
 import com.chillarcards.dimasys.data.model.transaction.res.RecentTransactionsResModel
+import com.chillarcards.dimasys.modelclass.MerchantDetailsResClass
+import com.chillarcards.dimasys.modelclass.NewMerchantResponseClass
+import com.chillarcards.dimasys.modelclass.PendingInvoiceResClass
+import com.chillarcards.dimasys.modelclass.ReceiveCashResponseClass
+import com.chillarcards.dimasys.modelclass.TotalPaymentCollectResClass
+import com.chillarcards.dimasys.modelclass.TransactionHistoryResClass
+import com.chillarcards.dimasys.modelclass.WalletBalanceResponseClass
 import retrofit2.Response
 
 /**
@@ -48,5 +55,16 @@ interface ApiHelper {
     suspend fun getMoneyCollected(
         userID: String,
     ): Response<MoneyCollectedResModel>
+
+    suspend fun getSubDistWalletBalance(userID: String,):Response<WalletBalanceResponseClass>
+    suspend fun getTotalPaymentCollect(userID: String):Response<TotalPaymentCollectResClass>
+    suspend fun getMerchantDetails(userID: String):Response<MerchantDetailsResClass>
+    suspend fun newMerchant(userID: String,merchantEmail:String, merchantName:String,
+                            merchantContact:String, merchantPassword:String, country:String, merchantCode:String,
+                            postalcode:String, addressLine1:String, addressLine2:String, colony:String, state:String):Response<NewMerchantResponseClass>
+
+    suspend fun cashReceive(userID: String, merchantID:String, amount:String, description:String):Response<ReceiveCashResponseClass>
+    suspend fun pendingInvoice(userID: String,merchantID: String):Response<PendingInvoiceResClass>
+    suspend fun transactionHistory(userID: String,merchantID: String,fromdate:String,todate:String):Response<TransactionHistoryResClass>
 
 }

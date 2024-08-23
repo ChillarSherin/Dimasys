@@ -7,6 +7,7 @@
     android:layout_height="?attr/actionBarSize"
     android:background="@color/white"
     app:titleTextColor="@color/white">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -30,6 +31,7 @@
             android:layout_height="match_parent"
             android:src="@mipmap/ic_launcher"
             android:layout_margin="@dimen/_5sdp"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toEndOf="@id/toolbar_menu"
@@ -37,12 +39,71 @@
             app:layout_constraintHorizontal_chainStyle="packed"
             android:contentDescription="@string/app_name" />
 
+   <com.google.android.material.textview.MaterialTextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/sub_distributor"
+    android:textColor="@color/text_black"
+    android:textSize="@dimen/_14ssp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintStart_toEndOf="@id/toolbar_menu"
+    app:layout_constraintEnd_toStartOf="@id/langaugeLayout"
+    app:layout_constraintHorizontal_chainStyle="packed"/>
+
+        <LinearLayout
+            android:id="@+id/langaugeLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/languageSwitch"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/txtView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Change language:"
+                android:textColor="@color/black"
+                android:textSize="10dp"
+                tools:layout_editor_absoluteX="286dp"
+                tools:layout_editor_absoluteY="2dp" />
+
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/txtView"
+                tools:layout_editor_absoluteX="286dp"
+                tools:layout_editor_absoluteY="2dp" />
+
+        </LinearLayout>
         <!-- Chat Icon -->
+
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/languageSwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:padding="8dp"
+            android:visibility="gone"
+            android:thumb="@drawable/custom_thumb"
+            android:track="@drawable/custom_track"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
         <ImageView
             android:id="@+id/chat_icon"
             android:layout_width="@dimen/_35sdp"
             android:layout_height="@dimen/_20sdp"
             android:src="@drawable/ic_chat"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/notify_icon"
             app:layout_constraintTop_toTopOf="parent"
@@ -54,6 +115,7 @@
             android:layout_width="@dimen/_35sdp"
             android:layout_height="@dimen/_20sdp"
             android:src="@drawable/ic_notifications"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"

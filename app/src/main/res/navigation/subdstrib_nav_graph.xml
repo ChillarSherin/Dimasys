@@ -11,14 +11,137 @@
         android:name="com.chillarcards.dimasys.ui.subdistributer.SubDistributerFragment"
         android:label="HomeFragment"
         tools:layout="@layout/fragment_subdistributor">
+        <argument
+            android:name="id"
+            android:defaultValue=""
+            app:argType="string"
+            app:nullable="true" />
         <action
-            android:id="@+id/action_homeFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            android:id="@+id/action_subDistributorFragment_to_recentProductsFragment"
+            app:destination="@id/recentProductsFragment" />
+        <action
+            android:id="@+id/action_subDistributorFragment_to_recentTransactionsFragment"
+            app:destination="@id/recentTransactionsFragment" />
+        <action
+            android:id="@+id/action_subDistributorFragment_to_totalBillingFragment"
+            app:destination="@id/totalBillingFragment" />
+        <action
+            android:id="@+id/action_subDistributorFragment_to_moneyCollectedFragment2"
+            app:destination="@id/moneyCollectedFragment2" />
+        <action
+            android:id="@+id/action_subDistributorFragment_to_merchantFragment"
+            app:destination="@id/merchantFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/recentProductsFragment"
+        android:name="com.chillarcards.dimasys.ui.others.recent_products.RecentProductsFragment"
+        android:label="RecentProductsFragment" >
+        <action
+            android:id="@+id/action_recentProductsFragment_to_subDistributorFragment"
+            app:destination="@id/subDistributorFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/recentTransactionsFragment"
+        android:name="com.chillarcards.dimasys.ui.others.recent_transactions.RecentTransactionsFragment"
+        android:label="fragment_recent_transactions"
+        tools:layout="@layout/fragment_recent_transactions" >
+        <action
+            android:id="@+id/action_recentTransactionsFragment_to_subDistributorFragment"
+            app:destination="@id/subDistributorFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/totalBillingFragment"
+        android:name="com.chillarcards.dimasys.ui.others.total_billings.TotalBillingFragment"
+        android:label="TotalBillingFragment" >
+        <action
+            android:id="@+id/action_totalBillingFragment_to_subDistributorFragment"
+            app:destination="@id/subDistributorFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/moneyCollectedFragment2"
+        android:name="com.chillarcards.dimasys.ui.others.money_collected.MoneyCollectedFragment"
+        android:label="MoneyCollectedFragment" />
+    <fragment
+        android:id="@+id/merchantFragment"
+        android:name="com.chillarcards.dimasys.ui.others.merchant.MerchantFragment"
+        android:label="MerchantFragment" >
+        <action
+            android:id="@+id/action_merchantFragment_to_addMerchantFragment"
+            app:destination="@id/addMerchantFragment" />
+        <action
+            android:id="@+id/action_merchantFragment_to_cashReceiveFragment"
+            app:destination="@id/cashReceiveFragment" />
+        <action
+            android:id="@+id/action_merchantFragment_to_transactionHistoryFragment"
+            app:destination="@id/transactionHistoryFragment" />
+        <action
+            android:id="@+id/action_merchantFragment_to_subDistributorFragment"
+            app:destination="@id/subDistributorFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addMerchantFragment"
+        android:name="com.chillarcards.dimasys.ui.others.merchant.AddMerchantFragment"
+        android:label="AddMerchantFragment" >
+        <action
+            android:id="@+id/action_addMerchantFragment_to_addedNewMerchantFragment"
+            app:destination="@id/addedNewMerchantFragment" />
+        <action
+            android:id="@+id/action_addMerchantFragment_to_merchantFragment"
+            app:destination="@id/merchantFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addedNewMerchantFragment"
+        android:name="com.chillarcards.dimasys.ui.others.merchant.AddedNewMerchantFragment"
+        android:label="AddedNewMerchantFragment" >
+        <action
+            android:id="@+id/action_addedNewMerchantFragment_to_merchantFragment"
+            app:destination="@id/merchantFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cashReceiveFragment"
+        android:name="com.chillarcards.dimasys.ui.others.merchant.CashReceiveFragment"
+        android:label="CashReceiveFragment" >
+        <action
+            android:id="@+id/action_cashReceiveFragment_to_subDistributorFragment"
+            app:destination="@id/subDistributorFragment" />
+        <action
+            android:id="@+id/action_cashReceiveFragment_to_cashReceivedSuccessfullyFragment"
+            app:destination="@id/cashReceivedSuccessfullyFragment" />
+        <action
+            android:id="@+id/action_cashReceiveFragment_to_merchantFragment"
+            app:destination="@id/merchantFragment" />
         <argument
             android:name="id"
             android:defaultValue=""
             app:argType="string"
             app:nullable="true" />
     </fragment>
+    <fragment
+        android:id="@+id/cashReceivedSuccessfullyFragment"
+        android:name="com.chillarcards.dimasys.ui.others.merchant.CashReceivedSuccessfullyFragment"
+        android:label="CashReceivedSuccessfullyFragment" >
+        <action
+            android:id="@+id/action_cashReceivedSuccessfullyFragment_to_subDistributorFragment"
+            app:destination="@id/subDistributorFragment" />
+
+        <argument
+            android:name="id"
+            android:defaultValue=""
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/transactionHistoryFragment"
+        android:name="com.chillarcards.dimasys.ui.others.merchant.TransactionHistoryFragment"
+        android:label="TransactionHistoryFragment" >
+        <action
+            android:id="@+id/action_transactionHistoryFragment_to_merchantFragment"
+            app:destination="@id/merchantFragment"
+            app:popUpTo="@id/merchantFragment"
+            app:popUpToInclusive="true"
+            />
+    </fragment>
+
 
 </navigation>

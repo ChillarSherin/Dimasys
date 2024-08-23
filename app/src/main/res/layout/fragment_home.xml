@@ -24,7 +24,7 @@
             <!-- Toolbar -->
             <include
                 android:id="@+id/toolbar"
-                layout="@layout/toolbar" />
+                layout="@layout/partner_toolbar" />
 
             <!-- Dashboard Info -->
             <LinearLayout

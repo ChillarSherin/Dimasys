@@ -33,7 +33,6 @@ class MobileFragment : Fragment() {
     lateinit var binding: FragmentMobileBinding
     private val loginViewModel by viewModel<LoginViewModel>()
 
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -46,7 +45,12 @@ class MobileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val pInfo =
-            activity?.let { activity?.packageManager!!.getPackageInfo(it.packageName, PackageManager.GET_ACTIVITIES) }
+            activity?.let {
+                activity?.packageManager!!.getPackageInfo(
+                    it.packageName,
+                    PackageManager.GET_ACTIVITIES
+                )
+            }
         val versionName = pInfo?.versionName //Version Name
 
 
@@ -58,30 +62,32 @@ class MobileFragment : Fragment() {
                 if (!input.matches(Const.emailRegex)) {
                     binding.username.error = "Are you sure you entered correctly?"
                     Const.disableButton(binding.loginBtn)
-                }else {
+                } else {
                     binding.username.error = null
                     binding.username.isErrorEnabled = false
                     Const.enableButton(binding.loginBtn)
                 }
-            }
-            else {
+            } else {
                 binding.username.error = null
                 binding.username.isErrorEnabled = false
             }
         }
         binding.loginBtn.setOnClickListener {
+
             val username = binding.usernameEt.text.toString()
             val password = binding.passwordEt.text?.trim().toString()
             when {
                 !Const.emailRegex.containsMatchIn(username) -> {
                     binding.username.error = getString(R.string.username)
                 }
+
                 else -> {
-                    binding.loginBtn.visibility =View.GONE
+                    binding.loginBtn.visibility = View.GONE
                     showProgress()
-                    mobileVerify(username,password,view)
+                    mobileVerify(username, password, view)
                 }
             }
+
         }
 
         setTextColorForTerms()
@@ -89,6 +95,7 @@ class MobileFragment : Fragment() {
     }
 
     private fun mobileVerify(username: String, pass: String, view: View) {
+        loginViewModel.clearOtpVerifyData()
         loginViewModel.run {
             email.value = username
             password.value = pass
@@ -97,6 +104,7 @@ class MobileFragment : Fragment() {
         setUpObserver(view)
 
     }
+
     private fun setUpObserver(view: View) {
         try {
             loginViewModel.loginData.observe(viewLifecycleOwner) {
@@ -108,26 +116,44 @@ class MobileFragment : Fragment() {
                                 when (resData.code) {
                                     "200" -> {
                                         PrefManager(requireContext()).setUserId(resData.details.userID)
-                                        findNavController().navigate(
-                                            MobileFragmentDirections.actionMobileFragmentToOtpFragment(resData.details.userType,
-                                                binding.usernameEt.text.toString(),
-                                                resData.details.userPhone)
-                                        )
+                                        PrefManager(requireContext()).setUserType(resData.details.userType)
+                                        Log.d("LoginSuccess", "UserID: ${resData.details.userID}, UserType: ${resData.details.userType}, UserPhone: ${resData.details.userPhone}")
+                                        try {
+                                            findNavController().navigate(
+                                                MobileFragmentDirections.actionMobileFragmentToOtpFragment(
+                                                    resData.details.userType,
+                                                    binding.usernameEt.text.toString(),
+                                                    resData.details.userPhone
+                                                )
+                                            )
+                                        } catch (e: IllegalArgumentException) {
+                                            Log.e("NavigationError", "Navigation action failed", e)
+
+                                        }
+
                                     }
+
                                     "400" -> {
                                         Const.shortToast(requireContext(), resData.message)
                                         binding.usernameEt.setText("")
                                         binding.passwordEt.setText("")
                                         binding.username.requestFocus();
-                                        Const.hideSoftKey(requireContext(),view)
+                                        Const.hideSoftKey(requireContext(), view)
                                     }
+
                                     else -> Const.shortToast(requireContext(), resData.message)
                                 }
+
+                            }?:run {
+                                Log.e("LoginError", "Response data is null.")
+                                Const.shortToast(requireContext(), "Error: Response data is null.")
                             }
                         }
+
                         Status.LOADING -> {
                             showProgress()
                         }
+
                         Status.ERROR -> {
                             hideProgress()
                             Const.shortToast(requireContext(), it.message.toString())
@@ -229,11 +255,13 @@ class MobileFragment : Fragment() {
             Log.e("abc_mobile", "setTextColorForTerms: msg: ", e)
         }
     }
-    fun onLoadSMS(){
+
+    fun onLoadSMS() {
         // on the below line we are creating a try and catch block
         try {
 
-            val message ="858585 is your verification OTP for accessing the BHC. Do not share this OTP or your number with anyone.yaMqX9A+vNH"
+            val message =
+                "858585 is your verification OTP for accessing the BHC. Do not share this OTP or your number with anyone.yaMqX9A+vNH"
             val uri: Uri = Uri.parse("smsto:+919744496378")
             val intent = Intent(Intent.ACTION_SENDTO, uri)
             intent.putExtra("sms_body", message)
@@ -243,6 +271,7 @@ class MobileFragment : Fragment() {
             // on catch block we are displaying toast message for error.
         }
     }
+
     override fun onStop() {
         super.onStop()
         Log.d("abc_mob", "onStop: ")

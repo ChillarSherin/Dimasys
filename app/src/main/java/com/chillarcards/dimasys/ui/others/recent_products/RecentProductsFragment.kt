@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.chillarcards.dimasys.R
 import com.chillarcards.dimasys.data.model.partner_products.res.RecentProductsResModel
 import com.chillarcards.dimasys.data.model.transaction.res.RecentTransactionsResModel
@@ -55,6 +56,10 @@ class RecentProductsFragment : Fragment() {
 
     private fun initViews() {
         initAdapter()
+        binding.myToolbar.setOnClickListener {
+            findNavController().navigateUp()
+        }
+
         binding.apply {
             recentProductRV.adapter = adapter
         }

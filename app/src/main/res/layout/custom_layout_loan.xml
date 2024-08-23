@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:ignore="MissingDefaultResource">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="340dp"
+        android:layout_height="290dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        app:cardCornerRadius="11dp"
+        android:backgroundTint="#22B573"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/ivImageView"
+                android:layout_width="31dp"
+                android:layout_height="31dp"
+                android:layout_gravity="end"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:src="@drawable/close_circle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.948"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription">
+
+            </ImageView>
+
+            <TextView
+                android:id="@+id/tvComingSoon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="69dp"
+                android:gravity="center"
+                android:text=" Coming Soon....! "
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="HardcodedText,RtlHardcoded,SpUsage">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/tvLoanApplication"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Loan Application Coming Soon!"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:layout_marginTop="19dp"
+                app:layout_constraintEnd_toEndOf="@+id/tvComingSoon"
+                app:layout_constraintStart_toStartOf="@+id/tvComingSoon"
+                app:layout_constraintTop_toBottomOf="@+id/tvComingSoon"
+                tools:ignore="HardcodedText,RtlHardcoded,SpUsage">
+
+
+            </TextView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="🚀 Stay tuned for exciting \nupdates."
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintEnd_toEndOf="@+id/tvLoanApplication"
+                app:layout_constraintStart_toStartOf="@+id/tvLoanApplication"
+                app:layout_constraintTop_toBottomOf="@+id/tvLoanApplication"
+                tools:ignore="HardcodedText,RtlHardcoded,SpUsage">
+
+
+            </TextView>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

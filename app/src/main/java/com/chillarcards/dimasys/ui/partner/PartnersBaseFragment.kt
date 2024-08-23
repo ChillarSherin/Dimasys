@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -50,7 +51,13 @@ class PartnersBaseFragment : Fragment(), DrawerController {
             true
         }*/
 
-
+        val headerView = binding.navigationView.getHeaderView(0)
+        val textViewHeader: TextView = headerView.findViewById(R.id.tvMerchants)
+        textViewHeader.setOnClickListener {
+            // Handle the click event
+            Snackbar.make(binding.drawerLayout, "Header TextView clicked", Snackbar.LENGTH_SHORT).show()
+            // You can perform other actions here, like navigating to a different fragment
+        }
 
         setupDrawer()
     }
@@ -67,7 +74,7 @@ class PartnersBaseFragment : Fragment(), DrawerController {
 
         binding.navigationView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
-                R.id.nav_home -> {
+                R.id.nav_merchants -> {
                     Snackbar.make(binding.drawerLayout, "First item clicked", Snackbar.LENGTH_SHORT).show()
                 }
                 R.id.nav_logout -> {
